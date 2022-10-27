@@ -13,8 +13,10 @@ class MathForVectors2Test {
         Vector2 vectorFromMethod = mathForVectors2.sumOfVectors(v1, v2);
         Vector2 vectorResult = new Vector2(6.0, 8.0);
 
-        assert vectorResult.getX() == vectorFromMethod.getX();
-        assert vectorResult.getY() == vectorFromMethod.getY();
+        double eps = 1e-6;
+
+        assert (vectorFromMethod.getX() - vectorResult.getX()) < eps;
+        assert (vectorFromMethod.getY() - vectorResult.getY()) < eps;
     }
 
     @Test
@@ -25,8 +27,10 @@ class MathForVectors2Test {
         Vector2 vectorFromMethod = mathForVectors2.diffOfVectors(v1, v2);
         Vector2 vectorResult = new Vector2(-4.0, -4.0);
 
-        assert vectorResult.getX() == vectorFromMethod.getX();
-        assert vectorResult.getY() == vectorFromMethod.getY();
+        double eps = 1e-6;
+
+        assert (vectorFromMethod.getX() - vectorResult.getX()) < eps;
+        assert (vectorFromMethod.getY() - vectorResult.getY()) < eps;
     }
 
     @Test
@@ -37,8 +41,19 @@ class MathForVectors2Test {
         Vector2 vectorFromMethod = mathForVectors2.increaseVectorOnNumber(v1, n);
         Vector2 vectorResult = new Vector2(5.0, 10.0);
 
-        assert vectorResult.getX() == vectorFromMethod.getX();
-        assert vectorResult.getY() == vectorFromMethod.getY();
+        double eps = 1e-6;
+
+        assert (vectorFromMethod.getX() - vectorResult.getX()) < eps;
+        assert (vectorFromMethod.getY() - vectorResult.getY()) < eps;
+    }
+
+    @Test
+    void divisionVectorOnZero() {
+        Vector2 v1 = new Vector2(1.0, 2.0);
+        double n = 0.0;
+
+        Vector2 vectorFromMethod = mathForVectors2.divisionVectorOnNumber(v1, n);
+        assert vectorFromMethod == null;
     }
 
     @Test
@@ -49,8 +64,10 @@ class MathForVectors2Test {
         Vector2 vectorFromMethod = mathForVectors2.divisionVectorOnNumber(v1, n);
         Vector2 vectorResult = new Vector2(3.0, 4.0);
 
-        assert vectorResult.getX() == vectorFromMethod.getX();
-        assert vectorResult.getY() == vectorFromMethod.getY();
+        double eps = 1e-6;
+
+        assert (vectorFromMethod.getX() - vectorResult.getX()) < eps;
+        assert (vectorFromMethod.getY() - vectorResult.getY()) < eps;
     }
 
     @Test
@@ -60,7 +77,9 @@ class MathForVectors2Test {
         double lengthFromMethod = mathForVectors2.lengthOfVector(v1);
         double lengthResult = 10.0;
 
-        assert lengthResult == lengthFromMethod;
+        double eps = 1e-6;
+
+        assert (lengthResult - lengthFromMethod) < eps;
     }
 
     @Test
@@ -71,7 +90,9 @@ class MathForVectors2Test {
         double resultFromMethod = mathForVectors2.scalarProduct(v1, v2);
         double result = 62;
 
-        assert  result == resultFromMethod;
+        double eps = 1e-6;
+
+        assert  (result - resultFromMethod) < eps;
     }
 
     @Test
@@ -79,9 +100,11 @@ class MathForVectors2Test {
         Vector2 v1 = new Vector2(6.0, 8.0);
 
         Vector2 vectorFromMethod = mathForVectors2.normalization(v1);
-        Vector2 vectorResult = new Vector2(0.6,0.8);
+        Vector2 vectorResult = new Vector2(6.0 * 0.1,8.0 * 0.1);
 
-        assert vectorResult.getX() == vectorFromMethod.getX();
-        assert vectorResult.getY() == vectorFromMethod.getY();
+        double eps = 1e-6;
+
+        assert (vectorFromMethod.getX() - vectorResult.getX()) < eps;
+        assert (vectorFromMethod.getY() - vectorResult.getY()) < eps;
     }
 }

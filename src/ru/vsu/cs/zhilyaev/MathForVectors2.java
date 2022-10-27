@@ -14,6 +14,11 @@ public class MathForVectors2 {
     }
 
     public Vector2 divisionVectorOnNumber(Vector2 v1, double n) {
+        if(n == 0) {
+            System.out.println("На 0 делить нельзя");
+            return null;
+        }
+
         return new Vector2(v1.getX() / n, v1.getY() / n);
     }
 

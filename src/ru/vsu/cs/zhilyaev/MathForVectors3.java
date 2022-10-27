@@ -14,6 +14,11 @@ public class MathForVectors3 {
     }
 
     public Vector3 divisionVectorOnNumber(Vector3 v1, double n) {
+        if(n == 0) {
+            System.out.println("На 0 делить нельзя");
+            return null;
+        }
+
         return new Vector3(v1.getX() / n, v1.getY() / n, v1.getZ() / n);
     }
 
@@ -26,7 +31,7 @@ public class MathForVectors3 {
     }
 
     public Vector3 normalization(Vector3 v1) {
-        double invLength = 1 / lengthOfVector(v1);
+        double invLength = 1 / Math.sqrt(v1.getX() * v1.getX() + v1.getY() * v1.getY() + v1.getZ() * v1.getZ());
         return new Vector3(v1.getX() * invLength, v1.getY() * invLength, v1.getZ() * invLength);
     }
 
