@@ -2,8 +2,6 @@ package ru.vsu.cs.zhilyaev;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class MathForVectors4Test {
     MathForVectors4 mathForVectors4 = new MathForVectors4();
 
