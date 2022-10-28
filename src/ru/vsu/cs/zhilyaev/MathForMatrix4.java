@@ -21,23 +21,27 @@ public class MathForMatrix4 {
         return matrixResult;
     }
 
-    public double[][] divisionDoubleMatrixOnVector(double[][] matrix, Vector4 vector) {
+    public double[][] increaseDoubleMatrixOnVector(double[][] matrix, Vector4 vector) {
         double[][] matrixResult = new double[4][4];
-        double[][] vectorMatrix = new double[1][4];
+        double[][] vectorMatrix = new double[4][1];
         vectorMatrix[0][0] = vector.getX();
-        vectorMatrix[0][1] = vector.getY();
-        vectorMatrix[0][2] = vector.getZ();
-        vectorMatrix[0][3] = vector.getM();
+        vectorMatrix[1][0] = vector.getY();
+        vectorMatrix[2][0] = vector.getZ();
+        vectorMatrix[3][0] = vector.getM();
+        if(vectorMatrix[0][0] == 0 || vectorMatrix[1][0] == 0 || vectorMatrix[2][0] == 0 || vectorMatrix[3][0] == 0) {
+            System.out.println("На 0 делить нельзя");
+            return null;
+        }
 
         for (int col = 0; col < matrix[0].length; col++) {
             for (int row = 0; row < matrix.length; row++) {
-                matrixResult[row][col] = matrix[row][col] * vectorMatrix[0][col];
+                matrixResult[row][col] = matrix[row][col] * vectorMatrix[col][0];
             }
         }
         return matrixResult;
     }
 
-    public double[][] divisionOfDoubleMatrix(double[][] matrix1, double[][] matrix2) {
+    public double[][] increaseOfDoubleMatrix(double[][] matrix1, double[][] matrix2) {
         double[][] matrixResult = new double[4][4];
 
         for (int row = 0; row < matrix1[0].length; row++) {
