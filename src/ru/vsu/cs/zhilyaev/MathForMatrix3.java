@@ -22,20 +22,17 @@ public class MathForMatrix3 {
     }
 
     public double[][] increaseDoubleMatrixOnVector(double[][] matrix, Vector3 vector) {
-        double[][] matrixResult = new double[3][3];
+        double[][] matrixResult = new double[3][1];
         double[][] vectorMatrix = new double[3][1];
         vectorMatrix[0][0] = vector.getX();
         vectorMatrix[1][0] = vector.getY();
         vectorMatrix[2][0] = vector.getZ();
 
-        if(vectorMatrix[0][0] == 0 || vectorMatrix[1][0] == 0 || vectorMatrix[2][0] == 0) {
-            System.out.println("На 0 делить нельзя");
-            return null;
-        }
-
-        for (int col = 0; col < matrix[0].length; col++) {
-            for (int row = 0; row < matrix.length; row++) {
-                matrixResult[row][col] = matrix[row][col] * vectorMatrix[col][0];
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = 0; col < vectorMatrix[0].length; col++) {
+                for (int i = 0; i < vectorMatrix.length; i++) {
+                    matrixResult[row][col] += (matrix[row][i] * vectorMatrix[i][0]);
+                }
             }
         }
         return matrixResult;
@@ -44,9 +41,11 @@ public class MathForMatrix3 {
     public double[][] increaseOfDoubleMatrix(double[][] matrix1, double[][] matrix2) { // Переписать умножение матриц
         double[][] matrixResult = new double[3][3];
 
-        for (int row = 0; row < matrix1[0].length; row++) {
-            for (int col = 0; col < matrix1.length; col++) {
-                matrixResult[row][col] = matrix1[row][col] * matrix2[col][row];
+        for (int row = 0; row < matrix1.length; row++) {
+            for (int col = 0; col < matrix2[0].length; col++) {
+                for (int i = 0; i < matrix2.length; i++) {
+                    matrixResult[row][col] += (matrix1[row][i] * matrix2[i][col]);
+                }
             }
         }
         return matrixResult;
