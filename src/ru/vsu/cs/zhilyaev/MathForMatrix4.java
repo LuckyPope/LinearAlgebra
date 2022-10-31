@@ -76,7 +76,11 @@ public class MathForMatrix4 {
         double[][] matrixResult = new double[4][4];
         for (int row = 0; row < matrixResult[0].length; row++) {
             for (int col = 0; col < matrixResult.length; col++) {
-                matrixResult[row][col] = 1;
+                if(row == col) {
+                    matrixResult[row][col] = 1;
+                    continue;
+                }
+                matrixResult[row][col] = 0;
             }
         }
         return matrixResult;

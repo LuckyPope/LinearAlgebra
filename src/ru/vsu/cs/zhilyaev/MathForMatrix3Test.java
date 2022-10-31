@@ -126,9 +126,9 @@ class MathForMatrix3Test {
     void oneDoubleMatrix() {
         double[][] matrixFromMethod = mathForMatrix3.oneDoubleMatrix();
         double[][] matrixResult = new double[][] {
-                {1, 1, 1},
-                {1, 1, 1},
-                {1, 1, 1}
+                {1, 0, 0},
+                {0, 1, 0},
+                {0, 0, 1}
         };
 
         assert Arrays.deepEquals(matrixResult, matrixFromMethod);
