@@ -29,10 +29,8 @@ public class MathForMatrix3 {
         vectorMatrix[2][0] = vector.getZ();
 
         for (int row = 0; row < matrix.length; row++) {
-            for (int col = 0; col < vectorMatrix[0].length; col++) {
-                for (int i = 0; i < vectorMatrix.length; i++) {
-                    matrixResult[row][col] += (matrix[row][i] * vectorMatrix[i][0]);
-                }
+            for (int col = 0; col < matrix[0].length; col++) {
+                matrixResult[row][0] += matrix[row][col] * vectorMatrix[col][0];
             }
         }
         return matrixResult;
