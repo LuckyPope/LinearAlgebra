@@ -1,19 +1,20 @@
 package ru.vsu.cs.zhilyaev;
 
 public class Vector2 {
-    private double x;
-    private double y;
+    private float x;
+    private float y;
 
-    public Vector2(double x, double y) {
+    public Vector2(float x, float y) {
         this.x = x;
         this.y = y;
     }
 
-    public double getX() {
+    public float getX() {
         return this.x;
     }
 
-    public double getY() {
+    public float getY() {
         return this.y;
     }
+
 }
